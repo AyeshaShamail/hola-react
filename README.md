@@ -12,9 +12,10 @@
 -Compress the file
 -Consistent hashing
 -code splitting
-Differential bundling(Gives support for older browsers)
+-Differential bundling(Gives support for older browsers)
 -Diagnostics
 -error handling
 -Https
 -Tree Shaking - it removes unused code for you
 -It creates different production and dev bundle(Less optimization on dev build nad more in production build)
+
