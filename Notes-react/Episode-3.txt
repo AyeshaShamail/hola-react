@@ -1,0 +1,52 @@
+npx parcel index.html will create development build for us & will host it on localhost:1234
+To stop writing above command again n again we need to write npm  script for both dev and production in package.json.
+
+npm run start or npm start for running development(behind scenes it executes parcel's index.html file since we have configured it inside package.json)
+npm run build for production and npm build won't work because start is reserved keyword in npm
+
+React elements are equivalent to DOM elements(html elements)
+
+
+React.createElement has three argument one is tag, second is attribute(id/class) and third is children of the first tag. React.createElement creates an object, when we render this element to DOM then it becomes HTML element.
+ReactDOM.create is to display on browser
+
+React.createElement creates an object and when we do root.render, a powerful library ReactDOM takes the object and converts it into HTML element and push(replaced not append) it to browser.
+
+JSX is a javascript syntax which is easier to create elements, it's not part of React. Because both are different. React can be built without JSx but using JSX can make it easy.
+JSX is a convention where we merge JS and HTML files at one place.
+JSX is not html inside Javascript but it's not. It is just HTML/XML like syntax.
+JSX is valid javascript or pure javascript.
+
+JS Engine understand ES-6 or all versions of ECMAscript.
+
+The code is transpiled(converted) before it goes to the ES engine. And parcel transpiling the code i.e BABEL is helping here
+BABEL is JS compiler or transpiler.
+
+JSX is first created as reactElement and then as React Element behind the scenes convert it into JS object and then it's rendered onto DOM as HTML element and hence it's React Element at the end of the day and hence it's same when we console log it.
+
+Basically Babel takes all the code, reads it and converts it into React.createElement. It just not convert but it transpiles the code JS engines understand.
+
+
+
+In html we give class Name as class but in JSX we give it as className and it's a camelCase for attributes.
+
+If JSX is in single line, perfectly valid JSx suppose you want to write multiple lines, wrap it in round brackets which is mandatory
+
+//React Components
+Everything is a component in react.
+2 types- class based and functional Components
+
+=> Class based - The old way of writing code. They used JS classes
+=> Functional based - The new way of writing code. They used JS functions.
+
+=> React functional component is a JS function, always create a function start with capital letter (HeadingComponent). Function which is returning JS code is called Functional component
+
+Ex: 
+const HeadingComponent = () => {
+    return <h1>This is my functional component</h1>
+} or 
+
+const HeadingComponent = () =>  <h1>This is my functional component</h1>
+
+We can't render React component like root.render(HeadingComponent)
+We have to use it as root.render(<HeadingComponent/>)

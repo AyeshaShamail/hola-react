@@ -1,0 +1,7 @@
+#Inception
+
+git vs github
+webpack parcel vite
+dev and normal dependency
+caret and tilde in package.json
+package.json vs package-lock.json
