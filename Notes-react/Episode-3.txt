@@ -50,3 +50,34 @@ const HeadingComponent = () =>  <h1>This is my functional component</h1>
 
 We can't render React component like root.render(HeadingComponent)
 We have to use it as root.render(<HeadingComponent/>)
+
+Component composition - composing 2 Components inside one
+
+It's a normal JS function which return normal JSX code or react element => Functional component
+
+We can use normal function instead of arrow functions too since it's a good,cleaner and industry standard to use arrow function.
+
+Element inside a component is 
+
+Amazing superpower of JSX is we can write parenthesis and within write any piece of JS. i.e., we can inject any JS code inside the JSX (parenthesis).
+
+How to put react element inside JSX? It's same as we wrote in parenthesis in the above line Ex: 
+const Title = () => (
+  <h1 className="head" tabIndex="5">
+    Namastey React using JSX
+  </h1>
+);
+
+const number = 1000; const HeadingComponent = () => (
+  <div id="container">
+    <h2>{number}</h2>
+    {Title}
+    <h1 className="heading"> This is my functional component </h1>
+  </div>
+);
+
+cross side scripting - an attack in which an attacker injects malicious executable scripts into the code of a trusted application or website. 
+
+JSX takes care of the injection attacks(cross side scripting), even if bad API send malicious data JSX will escape it by sanitizing it.
+
+<Title/> is same as <Title></Title>

@@ -1,0 +1,39 @@
+#Talk is cheap, let's code!
+
+App name chosen is - #SavoryAmigo
+
+For writing CSS for example-
+const RestaurantCard = () => {
+  return (
+    <div
+      className="restaurant-card"
+      style={{
+        backgroundColor: "#f0f0f0",
+      }}
+    >
+      <h3>Al-Daaz</h3>
+    </div>
+  );
+};
+ /**One curly brace is for there's some piece of JS in it and second bracket is Javascript object */ --  style={{
+        backgroundColor: "#f0f0f0",
+      }}
+
+
+-- props are normal arguments to the function.
+
+-- props that are passed to a react component are JS objects.
+
+-- **When you have to dynamically pass some data to component we pass it as a props**
+
+-- ***Config Driven UI - website defined by config - controlling UI using data/config which is coming from backend.Config-driven UI is a technique that allows you to create user interfaces based on a configuration file, such as JSON, or a TypeScript file that defines the layout and content of the UI components. This can be useful for creating dynamic and customizable UIs without hard coding them***
+
+-- map/filter/reduce - learn
+
+--*** whenever we are using map or looping onto a list, always give unique key to uniquely identify the element and avoid re-rendering every element every time ***
+
+Key can be either key={restaurant.data.id} or key={index}, which is second argument of map but React doesn't recommend index as keys
+
+not using keys(not acceptable) <<<< index as key <<< using unique id as key (best practice)
+
+Read index as an key is an anti-pattern - https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/
