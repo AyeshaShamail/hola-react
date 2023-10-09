@@ -36,10 +36,13 @@
   border: 1.5px solid black;
 }
 .search-bar {
-  padding: 8px;
+  padding: 10px;
 }
 
 .res-logo {
   width: 100%;
 }
-
+.filter-btn {
+  margin: 10px;
+  cursor: pointer;
+}

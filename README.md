@@ -19,3 +19,22 @@
 -Tree Shaking - it removes unused code for you
 -It creates different production and dev bundle(Less optimization on dev build nad more in production build)
 
+
+# FoodApp
+
+
+/**
+ * Header
+ * -Logo
+ * -Nav Bar
+ * Body
+ * -Search bar
+ * -Restaurant Container
+ * - restaurant cards
+ * Footer
+ * -Copyright
+ * - Links
+ * - Contact
+ * - Address
+ */
+

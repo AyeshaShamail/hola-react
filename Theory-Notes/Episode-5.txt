@@ -1,0 +1,54 @@
+1. Learning about industry standard folder structure
+-- Not mandatory but recommended.
+-- Never Keep hard coded data in components file.
+-- Keep image src links in folder called utils/common/consonants - utilities to be used anywhere in the app.
+-- Name all the constants in a CAPITAL or SNAKE CASE
+
+2. Export and Import 
+-- First export(give) and then import(take)
+-- Not necessary to use extension in imports, it still works. 
+-- There are two types of imports and exports i.e., named and default.
+-- In one file, we can have only one default export.
+-- For multiple exports, we have named exports by mention "export" behind function name i.e export const CDN_URL ="";
+-- Named imports are imported as import {CDN_URL} from "../../utils/constants"
+
+Default export/imports
+-- export default Component;
+-- import Component from "path";
+
+Named export/imports
+-- export const Component;
+-- import {Component} from "path";
+
+3. React Hooks
+-- Super power React variable is also called as state variable. It is like a variable/state of a component. It can be done using Hooks i.e., useState
+-- Hook is just a normal JS function which is pre built and has logic built inside it,it is a utility function given by React.
+-- Two import react hooks i.e., useState and useEffect.
+-- useState - used to generate super powerful react variables and state variable. It maintains the state of the component.It is a spacial state/react variable.
+-- The super powerful variable keeps the UI in sync with the data layer.
+-- As soon as the state variable updates, react re-renders the components and very optimized way.
+
+4. Event-handlers
+5. React App has data layer and UI layer. UI layer will show what data layer is sending
+6. Filtering
+
+7. Why react is Fast?
+-- Because it does faster,efficient DOM manipulation.
+
+8. Render in react - Whenever a state variable updates(changes), React re-renders(
+A second or subsequent render to update the state is called as re-rendering.) the components.
+
+9. Reconciliation(whenever something changes in UI) Algorithm is used by React - Also known as React Fiber - A highest level description of React's reconciliation algorithm.
+-- 
+
+10. Virtual DOM - Not an actual DOM (tags) - Virtual DOM is a representation of actual DOM. The JS object is a virtual DOM.
+
+11. Diff algorithm finds out difference between two virtual DOM's(updated and previous V'DOM) on every render cycle
+
+React Fiber came in React-16 , it's a new algorithm to update the DOM . It's a new way of finding the diff and updating the DOM and that's how react becomes faster.
+
+React doesn't touch HTML. Whenever a state variable is updated, react will find out the diff and update the DOM.
+
+-- React is fast because it's doing efficient DOM manipulation because of V'DOM.
+
+-- 
