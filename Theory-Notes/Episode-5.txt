@@ -51,4 +51,4 @@ React doesn't touch HTML. Whenever a state variable is updated, react will find 
 
 -- React is fast because it's doing efficient DOM manipulation because of V'DOM.
 
--- 
+-- useState returns an array - Array destructuring
