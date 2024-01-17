@@ -1,0 +1,4 @@
+JSP - Java Server Pages
+Monolith architecture(All type of code(FE,BE,SMS,API,notifications,Authentication,DB) in same service) and Microstructure architecture(different services or different micro services for different jobs()).
+Micro services - All the small applications talk to each other depending on the use cases. This is known as seperation of concerns and follows single responsibility principle, where each and every service has its own job.
+ 
