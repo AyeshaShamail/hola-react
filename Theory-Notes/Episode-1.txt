@@ -1,5 +1,54 @@
 #Inception
 
+Browsers already have JS in it as they're already injected and hence they know what is document,getElementById,root,createElement. But they do not understand React code.
+And hence we need to get it into our project.
+
+We do it through CDN (Content Delivery Network) - place where React library is hoisted.
+
+Inject react via CDN link and check what's in there by writing "React" in console of the browser.
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script> --- This is core React
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> -- This is to modify DOM(bridge btw react and browser)
+
+We need both files and not just ne since we will be using these in mobile phone(React Native) as well.
+
+To create hello world in React. we use React.createElement('tag', {object- where we give attributes to the tag say id,class etc}, "Content inside the tag'). Here create lement takes three args namely, tag,object and content inside the tag.
+React needs to have root to do DOM stuff. To create use ReactDOM.createRoot() which is coming from react-dom script link and React.createElement is from react script.
+
+root is a place where all react code works or renders.
+
+React element is Javascript object which is created by React.createElement('h1',{id="heading"},"This is example"). the third thing which we are passing(content) is known as children.
+ 
+render method is root.render is basically converting the object into a HTML element.
+Ex: root.render(heading)- in browser's console it's creating a html element.
+
+React element at the end of the day is object, and this object becomes html element that browser understands while it's rendering.
+
+ For sibling in children, give in an array.
+
+ JSX makes it easy when it comes to create tags.
+
+ Always keep react links before App.js else it throws an error.
+
+
+ Whatever is in the root is replaced by the thing we are passing inside root.render()
+  React is a library because we can apply it to small part of the page as well. React can work independently in small portion of a page as well and hence we call React as a library.
+
+ Framework is a framework which comes with all loads of things.
+
+
+React is a barebone JS minimal library.
+
+************React element is a JS object which is using ReactDOM.createRoot element "root". createRoot is responsible for the root and which assigns a root inside the react.root.render where "render" method is superpowerful which is helping us to put the object on the page as React element and then converted into HTML and then browser shows html and show it on the page.*************
+
+When we do root.render, whatever we're passing inside it will be replaced by what is already there in the root.
+
+
+CDN - ?
+Crossorigin - ? 
+ Development vs production links in CDN difference -?
+ Library vs framework -?
+
 git vs github
 webpack parcel vite
 dev and normal dependency
