@@ -1,3 +1,13 @@
+==> The beauty of using a framework or a library is it makes developer work life easy.It helps to write less code and do more on web page.
+ 
+==> React makes the code works faster and helps in optimisation.
+
+==> Never ever keep hardcode URL's in component files, keep them in seperate file(config.js/util.js/common.js).
+
+==> Utils means utilities that can be used all over the app.
+
+==> Name the file with small letter if it's not component file.
+
 1. Learning about industry standard folder structure
 -- Not mandatory but recommended.
 -- Never Keep hard coded data in components file.
@@ -21,8 +31,8 @@ Named export/imports
 -- import {Component} from "path";
 
 3. React Hooks
--- Super power React variable is also called as state variable. It is like a variable/state of a component. It can be done using Hooks i.e., useState
--- Hook is just a normal JS function which is pre built and has logic built inside it,it is a utility function given by React.
+-- Super power React variable is also called as state variable. It is like a variable/state of a component. It can be done using Hooks i.e., useState. UseState gives super powerful react variables since it maintains state of the component.
+-- Hook is just a normal javascript utility function which is pre built and has logic built inside it,it is a utility function given by React.
 -- Two import react hooks i.e., useState and useEffect.
 -- useState - used to generate super powerful react variables and state variable. It maintains the state of the component.It is a spacial state/react variable.
 -- The super powerful variable keeps the UI in sync with the data layer.
@@ -33,13 +43,15 @@ Named export/imports
 6. Filtering
 
 7. Why react is Fast?
--- Because it does faster,efficient DOM manipulation.
+-- Because it does faster and efficient DOM manipulation.
 
 8. Render in react - Whenever a state variable updates(changes), React re-renders(
 A second or subsequent render to update the state is called as re-rendering.) the components.
 
 9. Reconciliation(whenever something changes in UI) Algorithm is used by React - Also known as React Fiber - A highest level description of React's reconciliation algorithm.
--- 
+-- came in React 16
+
+Actual DOM - Are the tags(div inside a div or image inside the div)
 
 10. Virtual DOM - Not an actual DOM (tags) - Virtual DOM is a representation of actual DOM. The JS object is a virtual DOM.
 
