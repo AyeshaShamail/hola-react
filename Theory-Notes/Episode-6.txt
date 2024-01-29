@@ -34,6 +34,17 @@ useEffect(() => {
     console.log("useEffect called");
 },[])
 
+// Above is same as Array destructuring which is done below //
+
+  // const arr = useState(resList);
+  // const [ListOfRestaurants, setListOfRestaurants] = arr;
+
+  // or same as //
+
+  // const ListOfRestaurants = arr[0];
+  // const setListOfRestaurants = arr[1];
+
+
 When will be useEffect callback function is called? - After your component is rendered,once render cycles is finished, call back function is called which is passed in useEffect and useEffect call will be printed onto the console.
 
 The body will be called first and then useEffect will be called.
@@ -48,6 +59,8 @@ Await - Await data to come
 CORS policy - browsers block us from calling API's from one origin to another origin
 
 React fibre is a new reconciliation process to efficiently manipulate the DOM and hence react works faster.React is faster because of new diff algorithm , reconciliation which finds difference btw actual DOm and virtual DOM and updates the required portion of DOM.
+
+
 
 Optional chaining in JS?
 

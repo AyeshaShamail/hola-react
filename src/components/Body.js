@@ -1,12 +1,18 @@
 import RestaurantCard from "./RestaurantCard";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
   //Super-powerful variable or state variable which are called hooks
   // setListOfRestaurants is used to update the list and is the second parameter of the array.
-  const [listOfRestaurants, setListOfRestaurants] = useState();
+  // Local State Variable - Super powerful variable
+  const [listOfRestaurants, setListOfRestraunt] = useState([]);
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+
   const [searchText, setSearchText] = useState("");
+
+  // Whenever state variables update, react triggers a reconciliation cycle(re-renders the component)
+  console.log("Body Rendered");
 
   useEffect(() => {
     fetchData();
@@ -16,29 +22,26 @@ const Body = () => {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9029804&lng=77.6241936&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
-
     const json = await data.json();
+    console.log(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
 
-    console.log(json);
-
-    setListOfRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+    // Optional Chaining
+    setListOfRestraunt(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilteredRestaurant(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
-  // Above is same as Array destructuring which is done below //
-
-  // const arr = useState(resList);
-  // const [ListOfRestaurants, setListOfRestaurants] = arr;
-
-  // or same as //
-
-  // const ListOfRestaurants = arr[0];
-  // const setListOfRestaurants = arr[1];
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
       <div className="filter">
-        <div className="search">
+        <div className="search-bar">
           <input
             type="text"
             className="search-box"
@@ -49,8 +52,15 @@ const Body = () => {
           />
           <button
             onClick={() => {
-              //filter the restraunt cards and update the UI
-              //Need search text
+              // Filter the restraunt cards and update the UI
+              // searchText
+              console.log(searchText);
+
+              const filteredRestaurant = listOfRestaurants.filter((res) =>
+                res.data.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+
+              setFilteredRestaurant(filteredRestaurant);
             }}
           >
             Search
@@ -62,15 +72,15 @@ const Body = () => {
             const filteredList = listOfRestaurants.filter(
               (res) => res.data.avgRating > 4
             );
-            setListOfRestaurants(filteredList);
+            setListOfRestraunt(filteredList);
           }}
         >
-          Top-Rated Restaurant
+          Top Rated Restaurants
         </button>
       </div>
       <div className="restaurant-container">
-        {listOfRestaurants?.map((restaurant) => (
-          <RestaurantCard key={restaurant.data.id} resData={restaurant} />
+        {filteredRestaurant.map((restaurant) => (
+          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
       </div>
     </div>
