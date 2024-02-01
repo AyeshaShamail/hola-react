@@ -1,0 +1,23 @@
+UseEffect is called every time my component is rendered.Since we are using the dependency array, it changes the behavior of its render.
+Dependency array is not mandatory.
+
+If no dependency array , useEffect is called on every render cycle.
+If there is empty dependency array , useEffect is called on only initial render(just once, when component is rendered for the first time)
+if there's anything in dependency array, useEffect is only called when the dependency changes/updates.
+
+useState - It is used for creating local state variable inside our functional component
+
+Never create useState(stateVariables) outside of the component.
+Always call this at the top so that there's no inconsisitency in our code.
+Don't use useState inside the if-else, it can create the inconsisitency in our code.
+don't use inside functions/for-loop.
+
+Routing
+What is a configuration in routing - Some info that will define what will happen on a specific route.
+It's a list consisting of list of objects.
+
+Page - It's a composition of components.
+
+Router Provider will provide routing configuration to our app
+
+Check React Router documentation
