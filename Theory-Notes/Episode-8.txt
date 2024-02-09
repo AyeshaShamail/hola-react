@@ -1,0 +1,138 @@
+Functional component does not store or handle the state, it is also referred to as a stateless component. React provides a hook called useState() that enables function components to keep track of their state.
+
+There is no life cycle for a functional componen, to access the component’s various stages, React offers a hook called useEffect().
+
+We can group several functional components under a single functional component.Function components need lesser code to write than class components and are simpler to understand.
+
+Class based componenents - Older way of building componenents. - Normal JS class which has a render method that returns a piece of JSX whereas functional component is a function which returns a piece of JSX.
+React.Component is a class which is there inside REACT package.
+
+To define a React component class, you need to extend React.Component. You must develop a render method that returns a React element by extending from React.Component. Data can be passed between classes and between class components.
+
+Example:
+
+class UserClass extends React.Component {
+  render() {
+    return <h1>Hello,{this.props.name}</h1>;
+  }
+}
+
+To receive/pass props in class based components we use constructor and then a super props.
+constructor(props) {
+    super(props);
+    console.log(props);
+  }
+
+Due to their ability to contain or manage local states, class components are also known as stateful components.The life cycle of a class component is accessible through specific callback APIs, which also provide access to each life cycle event and we do not need useEffect() here.
+
+While using class components, we use this.props to access the name props.
+class UserClass extends React.Component {
+render() {
+ return <h1>Hello and welcome to, {this.props.name}</h1>;
+}
+
+We always have to use "this" keyword inside our class. So that we can use it anywhere inside our class
+
+For functional components, we use the syntax props.name to send the props as an argument to our function, and we need not worry about the this keyword, and the syntax becomes cleaner and more understandable.
+function FunctionalComponent(props) {
+ return <h1>Hello and welcome to, {props.name}</h1>;
+}
+
+Although a class component manages the state somewhat differently, the concept remains the same as functional component.Whenever a new instance of the class is created, a constructor is called.
+
+**************Significance of the React.Component Constructor***************
+
+“The constructor for a React component is called before it is mounted. When implementing the constructor for a React.Component subclass, you should call super(props) before any other statement. Otherwise, this.props will be undefined in the constructor, which can lead to bugs.”
+
+All the state variables you are trying to utilize will be undefined if the constructor is not implemented and super(props) is not called. So let us start by defining the function constructor. You will create a state object with a state key and initial value inside the constructor. Additionally, within JSX, we retrieve the value of the state key we set in the constructor to display the count by using this.state.count. The setter is essentially the same; the syntax is different.
+
+We don't need constructors in FC. To store the states in CC, we need constructors.
+FC are stateless components. CC are stateful components
+
+We cannot avoid super props.
+Why do we use Super props - ?
+We should call super(props) before any other statement. Otherwise, this.props will be undefined in the constructor, which can lead to bugs.”
+
+Instance of a class -  koading a class based components
+
+Invoking/mounting a functional components means loading a component
+
+Earlier there was no hooks in react, to use a state variable in class based componenents we use this.state.
+State was created when instance was created, whenever instance of the class is created, the constructor is called, and this is best place to receive props and also to create sttae variables.
+example -
+this.state = {
+      count: 0,
+};
+
+state is a big object which contains state variables.
+            
+Never update state variables directly like ---- this.state.count = this.state.count + 1;
+
+What are react's life cycle methods in class based components?
+--how it's put or mounted on to the web page.
+Let's go with a example, when About page is loaded onto to a webpage which is a parent component, it goes line by line and see UserClass which is a class based component. Then it goes inside the UserClass component and a new instance of the class is created.The first thing happen once instance is created or class is loaded is a constructor is called.Once it's called, then the render() is called.This become complicated if parent is also class based component.
+First constructor of parent is called, then the render of the parent is called and then the constructor of the child and the render of the child is called.
+
+Just like constructor and render method we have componentDidMount
+
+First constructor is called, then the render is called. Once the class based componenent is mounted on the DOM, componentDidMount is called but incase of parent class based component,
+Parent constructor is called, Parent render is called, Child constructor is called, child render is called, Child componentDidMount is called and once the children has been mounted properly, then the Parent componentDidMount will be called.
+
+==> Hence the life cycle method of class based componenents are as follows:
+Parent Constructor
+Parent render
+Child Constructor
+Child render
+Child Component Did Mount
+Parent Component Did Mount
+
+Use case of componentDidMount?
+-- It's used to make API calls. Why it's made is to quickly render the componenent. Here constructor will be called then the render will be called, then the API call is made inside the componentDidMount, fill the data and then re-render the componnet.
+
+==> When we have multiple children. the life cycle is---
+Parent Constructor
+Parent render
+FirstChild Constructor
+FirstChild render
+SecondChild Constructor
+SecondChild render
+<DOM Manipulation happens in a single batch>
+FirstChild Component Did Mount
+SecondChild Component Did Mount
+Parent Component Did Mount
+
+React batches multiple state updates and DOM operations into a single update to improve performance. So, the componentDidMount lifecycle methods of the child components will be called after the DOM manipulation batch completes, following the completion of the parent component's componentDidMount method.
+
+React is fast because it has 2 phases, render and commit phase.
+First constructor is called na dthen the render is called(Render phase).then it updates the DOM and then componentDidMount is called(Commmit phase)
+
+Since there are two childs, react optimises and not call componentDidMount of first child but React will batch the render phase for the two childs then two childs render phase will happen and then the commit phase will happen together
+Go through this diagram for flow-
+https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+When we have 2 same child component, two different instances of class are created
+
+API call in FC is made using useEffect which has an empty dependency array as well
+
+React wants to quickly render it, calls the API and then load the data instead of waiting for API to return the data to render the component.
+Manipulating/updating the DOM is an expensive task and hence React try to batch up the tasks, batch up render,mounting and DOM and hence the react is fast.
+It will optimises the performance of React App.
+
+React first renders phase and commit phase for both the children. 
+
+
+class User extends React.component{
+  render(){
+    return()
+  }
+} is same as 
+class User extends Component{
+  render(){
+    return()
+  }
+}
+
+The only difference is that instead of importing React from 'react' we will import import {Component} from 'react'
+
+Batching is a React's way of grouping multiple state updates and re-rendering the component only once for better performance.
+
