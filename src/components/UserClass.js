@@ -6,39 +6,48 @@ import User from "./User";
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-    // calling state variable inside the constructor
+
     this.state = {
-      count: 0,
-      count2: 2,
+      userInfo: {
+        name: "Fake",
+        location: "Default",
+        avatar_url: "https://dummy-photo.com",
+      },
     };
-    // console.log(props);
-    console.log(this.props.name + "Child Constructor");
+    // console.log(this.props.name + "Child Constructor");
   }
 
-  componentDidMount() {
-    console.log(this.props.name + "Child Component Did Mount");
+  async componentDidMount() {
+    // console.log(this.props.name + "Child Component Did Mount");
     //how to make an API call?
+    const data = await fetch("https://api.github.com/users/AyeshaShamail");
+    const json = await data.json();
+
+    this.setState({
+      userInfo: json,
+    });
+
+    console.log(json);
   }
+
+  componentDidUpdate() {
+    console.log("Component did update");
+  }
+
+  componentWillUnmount() {
+    console.log("Componenet will unMount?");
+  }
+
   render() {
-    /**Destructure */
-    const { name, location } = this.props;
-    const { count } = this.state;
-    console.log(this.props.name + "Child render");
+    // console.log(this.props.name + "Child render");
+    const { name, location, avatar_url } = this.state.userInfo;
+
     return (
       <div className="user-card">
-        <h1>Count: {count}</h1>
         <h2>Name : {name}</h2>
         <h3>Address : {location}</h3>
         <h4>Contact: aichusadiqa@gmail.com</h4>
-        <button
-          onClick={() => {
-            this.setState({
-              count: this.state.count + 1,
-            });
-          }}
-        >
-          Count Increase
-        </button>
+        <img src={avatar_url} />
       </div>
     );
   }

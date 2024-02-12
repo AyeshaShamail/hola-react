@@ -6,20 +6,18 @@ import UserClass from "./UserClass";
 class About extends Component {
   constructor(props) {
     super(props);
-    console.log("Parent Constructor");
+    // console.log("Parent Constructor");
   }
   componentDidMount() {
-    console.log("Parent Component Did Mount");
+    // console.log("Parent Component Did Mount");
   }
   render() {
-    console.log("Parent render");
+    // console.log("Parent render");
     return (
       <div>
         <h1>About Us using Class based Component</h1>
         <h2>This is my food app website</h2>
         <UserClass name={"First"} location={"Pavagada"} />
-        <UserClass name={"Second"} location={"Bangalore"} />
-        <UserClass name={"Third"} location={"US"} />
       </div>
     );
   }

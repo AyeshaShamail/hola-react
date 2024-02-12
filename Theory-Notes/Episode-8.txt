@@ -136,3 +136,19 @@ The only difference is that instead of importing React from 'react' we will impo
 
 Batching is a React's way of grouping multiple state updates and re-rendering the component only once for better performance.
 
+As soon as the userClass is loaded the Constructor is called, state is created with some default value, render happened with a default value, react will update it with dummy data.Now our component did mount was called.When the component was rendered once with the dummy data, mounting state was stopped. API call was made, it calls the setState and from here the updated State starts.setState updates the state variables, when the state variable is updated, react triggers the render cycle once again.Now the state has been changed with the updated or new value. SO react will render it, and in update cycle react will update the DOM with the new value.And then componentDidUpdate is called.
+
+-------Mounting Lifecycle----------
+Constructor(dummy)
+Render(dummy)
+<HTML>Dummy</HTML>
+componentDidMount
+<API Call>
+this.setState --> state variable is updated
+
+-------Update Lifecycle----------
+setState render method(API)
+<HTML>new API data</HTML>
+componentDidUpdate
+
+ComponentWillUnMount - when will this component disappear from the HTML
