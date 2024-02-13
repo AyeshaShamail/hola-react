@@ -1,30 +1,13 @@
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "../utils/constants";
+import useRestrauntMenu from "../utils/useRestrauntMenu";
 
 // useEffect is a named libarary
 const RestrauntMenu = () => {
-  // Now to load,store the data we need state variables
-  // when data updates, automatically update the UI
-
-  const [resInfo, setResInfo] = useState(null);
-
   const { resId } = useParams();
 
-  useEffect(() => {
-    fetchMenu(); //Making Api call
-  }, []);
-  //It has 2 args, a call back function and optional arg, if empty(UseEffect called every time component renders). use empty dependency array instead.
-  // Since use effect has empty dependency array, it will be called once after initial render
-  // How to make an api call fetch menu by creating an async function(arrow function).
-  const fetchMenu = async () => {
-    const data = await fetch(MENU_API + resId);
-    const json = await data.json(); //converting data to JSON
-    // console.log("JSON:", json);
-    // as soon as I make data call, got JSON, will fill resInfo with the JSON
-    setResInfo(json.data);
-  };
+  const resInfo = useRestrauntMenu(resId);
 
   if (resInfo === null) return;
   <Shimmer />;

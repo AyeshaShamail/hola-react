@@ -1,0 +1,19 @@
+#Optimisation
+
+------Single responsibility Principle------
+Each of the component/function should have single responsibility.
+Modulalarity - break your code into single single small pieces for maintainability,re-usablity and testable
+
+
+-------Custom Hooks-------
+Special JS variables given to us by REACT for Special use.
+Hooks are like utility or helper functions
+Create a seperate file for each cutom hook.
+Create it in utils folder and always start with "use" and use the same name as we're using so that react knows that it's a custom hook.
+
+
+Linters are static checkers of your code. It can find common errors while writing code. Formatters can format your code in a certain way so that it becomes understandable to everybody else. 
+
+-- App chunking / code splitting / lazy loading / dynamic bundling / on demand loading / dynamic importance -  Lazy loading is a technique used to load components or resources only when they are needed. Chunking our app into smaller logical chunks
+
+-- Lazy is a function given by react, named import.
