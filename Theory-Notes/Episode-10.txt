@@ -1,0 +1,11 @@
+SASS - https://sass-lang.com/documentation/
+SCSS - https://docs.gitlab.com/ee/development/fe_guide/style/scss.html
+Styled componnets -https://styled-components.com/
+Material UI/Bootstrap/Chakra UI/Ant design - css libraries and frameworks - pre styled components
+Tailwind css
+
+post css - A tool for transforming css with JS. - Tailwind uses  post css behind the scenes.
+
+when we do npx tailwindcss init - invoking tailwind css and initialisation
+
+postcssrc - Parcel will use postcssrc to understand tailwindcss
