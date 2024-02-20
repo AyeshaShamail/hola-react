@@ -96,4 +96,4 @@ copy of node modules in local and copy of node_modules in server  are different.
 
 Browser list - which all browsers our app supports by configuring it inside package.json 
 
-Dev dependency and normal dependency - ?
+Dev dependency and normal dependency difference- ?
