@@ -18,6 +18,7 @@ const Body = () => {
   useEffect(() => {
     fetchData();
   }, []);
+  TCPL68082;
 
   const fetchData = async () => {
     const data = await fetch(
@@ -47,16 +48,17 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="filter">
-        <div className="search-bar">
+        <div className="search-bar m-2 p-2">
           <input
             type="text"
-            className="search-box"
+            className="border border-solid border-black mr-2"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
           <button
+            className="px-4 bg-green-100 mx-4"
             onClick={() => {
               // Filter the restraunt cards and update the UI
               // searchText
