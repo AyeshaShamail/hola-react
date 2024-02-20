@@ -1,0 +1,72 @@
+UseEffect is called every time my component is rendered.Since we are using the dependency array, it changes the behavior of its render.
+Dependency array is not mandatory.
+
+If no dependency array , useEffect is called on every render cycle.
+If there is empty dependency array , useEffect is called on only initial render(just once, when component is rendered for the first time)
+if there's anything in dependency array, useEffect is only called when the dependency changes/updates.
+
+useState - It is used for creating local state variable inside our functional component
+
+Never create useState(stateVariables) outside of the component.
+Always call this at the top so that there's no inconsisitency in our code.
+Don't use useState inside the if-else, it can create the inconsisitency in our code.
+don't use inside functions/for-loop.
+Don't nest useState
+
+*********Routing************
+What is a configuration in routing - Some info that will define what will happen on a specific route.
+It's a list consisting of list of objects.
+
+Page - It's a composition of components.
+
+Router Provider will provide routing configuration to our app
+
+Check React Router documentation
+
+React-router-dom has created a beautiful error Page.
+check localhost:1234/absmbssksnks
+
+
+react-router-dom - Gives access to specific hook called useRouteError.
+
+****Children-routing****
+
+Whenever there's change in the path, Outlet will be filled according to the path on what page we're.
+Outlet component will be replaced by actual component in dev-tools elements.
+
+*****Linking*****
+In react, don't use anchor tag for pathing. If we don't want to refresh/reload and want to navigate to new page.
+Using Links, can navigate to other page but our page won't be reloaded/refreshed from browser. That's why React is a single page application(components gets interchanged).
+If you observe in dev-tools the difference using <a></a> tag and <Link/>. While using Link, div will be changed.
+
+There are two types of routing in web apps.
+1. Server side routing- Make network call, and the about us page will come from server
+2. Client side routing- No network call, since all the components are there. It just loads the component. Only network call happens while loading API
+
+And we use Client side routing in React
+
+Server-Side Routing:
+
+In server-side routing, the navigation and page rendering are handled by the server.
+When a user makes a request for a new page, the server processes the request and sends back the entire HTML page to the client.
+Each request typically results in a full page reload.
+Examples include traditional web applications built with technologies like PHP, Django, or Ruby on Rails.
+Client-Side Routing:
+
+In client-side routing, the navigation and page rendering are handled by the browser on the client's side.
+When a user clicks on a link, JavaScript running in the browser updates the URL and manipulates the DOM to display the new content without requesting a full page from the server.
+This approach provides a smoother user experience as only the necessary data is fetched, and there's no full page reload.
+Modern web frameworks and libraries like React, Vue.js, and Angular often use client-side routing for single-page applications (SPAs).
+
+
+In summary, server-side routing involves the server managing page navigation and rendering, while client-side routing delegates these tasks to the browser, resulting in faster and more dynamic user experiences, especially in single-page applications.
+
+****Why react is called as single page application********
+
+React is associated with Single Page Applications (SPAs) because it allows for dynamic content loading within a single HTML page. Its virtual DOM, efficient state management, React Router, and support for AJAX requests contribute to building highly interactive and responsive web applications without the need for full page reloads.
+
+
+*****Dynamic routing******
+Key should be on the parent JSX that is being mapped.
+
+Link is a wrapper over anchor tag. And it's a speacial kind of anchor tag

@@ -1,4 +1,84 @@
 JSP - Java Server Pages
 Monolith architecture(All type of code(FE,BE,SMS,API,notifications,Authentication,DB) in same service) and Microstructure architecture(different services or different micro services for different jobs()).
 Micro services - All the small applications talk to each other depending on the use cases. This is known as seperation of concerns and follows single responsibility principle, where each and every service has its own job.
- 
+
+A monolithic application is built as a single unified unit while a microservices architecture is a collection of smaller, independently deployable services.
+
+ A monolithic architecture is a singular, large computing network with one code base that couples all of the business concerns together.
+
+ A monolithic architecture is a traditional model of a software program, which is built as a unified unit that is self-contained and independent from other applications.
+
+ A microservices architecture, also simply known as microservices, is an architectural method that relies on a series of independently deployable services.
+ Advantages: 
+ 1. Agility
+ 2.Continuos deployment
+ 3.Highly maintanable and testable
+ 4.Independently deployable
+ 5.Technology Flexibility
+ 6.High reliability
+ 7. Happler teams
+
+ By making a call to different slash or URL - this is how they interact each other.
+
+Two ways to fetch data -
+1. Loads the page - API call - render the data.
+2. Page loads - render the UI - API call - re renders the data ===> React approach
+
+The second approach gives better UX.Since we are using react whose render cycle is very fast, we can re-render the page as many times as we want.
+React has best rendering mechanism.
+
+UseEffect hook - A normal function which gives special purpose. It takes two args.First is arrow function which is call back function and second arguement takes an dependency array.
+
+Syntax - 
+useEffect(() => {
+    console.log("useEffect called");
+},[])
+
+// Above is same as Array destructuring which is done below //
+
+  // const arr = useState(resList);
+  // const [ListOfRestaurants, setListOfRestaurants] = arr;
+
+  // or same as //
+
+  // const ListOfRestaurants = arr[0];
+  // const setListOfRestaurants = arr[1];
+
+
+When will be useEffect callback function is called? - After your component is rendered,once render cycles is finished, call back function is called which is passed in useEffect and useEffect call will be printed onto the console.
+
+The body will be called first and then useEffect will be called.
+
+fetch is a superpower which JS engine has and given to us by browsers,
+fetch will return a promise.
+
+async/await - better approach as it's has better syntax.
+Async - Make function async
+Await - Await data to come
+
+CORS policy - browsers block us from calling API's from one origin to another origin
+
+React fibre is a new reconciliation process to efficiently manipulate the DOM and hence react works faster.React is faster because of new diff algorithm , reconciliation which finds difference btw actual DOm and virtual DOM and updates the required portion of DOM.
+
+
+
+Optional chaining in JS?
+
+Shimmer UI? 
+-- Load fake page until we get data from the API
+-- 
+A shimmer UI is a version of the UI that doesn't contain actual content, but instead mimics the layout and shapes of the content that will eventually appear.
+Idea is to show user something very quickly.
+
+Conditional rendering - Rendering on the basis of condition.
+
+What is the superpower in useState variable and not in just normal variable?
+-- When we want UI to render dynamically, we can't use JS variables to make our component dynamic and hence we need to use local state variable .
+
+Whenever the setvariable changes, react will re-render the component, kinda refreshes and all the updated values will be there.
+How can a const variable gets updated/modified? 
+when setVariable is done, it's calls the component once agian and creates a new instance.Now firt arg/variable in useState will get newly updated.
+
+As soon as we call setVariable(setButtonANmeReact), it will update the first variable i.e buttonNameReact value reference, then it will render component once again and it will find the diff btw older version and newer verison and it will see in that diff, only see button will be changed.
+
+**********Definition of stateVariable - Whenever state variable updates, react triggers a reconciliation cycle(re-renders the component)*********

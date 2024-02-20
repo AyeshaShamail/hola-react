@@ -1,26 +1,39 @@
-#Igniting our App
+#Igniting our App - optimising code for production ready
 
-NPM - Manages the packages - standard repository for all the packages(dependencies)
+When we do create-react-app it's already ignited.
+
+NPM - Manages the packages - standard repository for all the packages(dependencies) -utilities/libraries/packages are hoisted in NPM
+
+'npm init -y' skips a lot of things.
 
 package.json is configuration for NPM , it keep tracks of what version(approximate) is installed in our system.
 
-Bundler - packages/bundles to our app to ship to production. (webpack,parcel, vite)
+Bundler -To minify/optimise/clear/chunk the app we need bundlers.Packages/bundles to our app to ship to production. (webpack,parcel, vite)
 We will use Parcel in our bundler
+ 
+ Here we're using Parcel to ignite our app.
 
 npm install -D parcel, here -D means dev dependency
-There are two types of dependencies - Dev(generally required in development phase) and normal dependency(can also be used in production too)
 
-tilde( ~ ) and caret( ^ ) are two symbols used to specify version ranges in package. json . 
-Tilde( ~ ) allows for patch updates(Major updates). 
-Caret( ^ ) allows for both minor and patch updates, safe to use
+There are two types of dependencies - Dev dependency(It is generally required in a development phase) and normal dependency(can also be used in production too)
+
+Tilde( ~ ) and caret( ^ ) are two symbols used to specify version ranges in package. json . 
+Tilde( ~ ) allows for patch updates(Major updates). Automatically installs major versions of the pages.
+Caret( ^ ) allows for both minor and patch updates, safe to use. Caret automatically updates minor upgrades.Always use ^ since minor versions doesn't affect much to our code while ~ might break the code.
 
 package-lock.json - Keep track of exact version by locking it.
+package.json - Keep track of approximate version. It's a configuration.
 
-Node modules fetches all the code of all the dependencies to our system(database where all our packages exists) - collection of all the dependencies.
+The integrity in package-lock.json is a hash, a sha512 key.To avoid local and production difference, package-lock.json verifies whatever version is there in the local is present in production as well.
 
-Transitive dependencies - where each dependency has it's own dependency and so on.
 
-package.json and package-lock.json should be there in git but not node_modules. If package.json and package-lock.json is present we can recreate the node_modules   
+Node modules contains all the code that are fetched when we installed npm.Node modules fetches all the code of all the dependencies into our system(database where all our packages exists) - collection of all the dependencies.
+
+Transitive dependencies - where each dependency has it's own dependency and so on.Maintaining it's own configuration.
+
+Every dependency has it's own package.json in it.It has it's own dependencies and dev dependencies.
+
+package.json and package-lock.json should be there in git but not node_modules. If package.json and package-lock.json is present we can recreate the node_modules.
 
 parcel has created a server and has given a port and hoisting our app on server.
 
@@ -36,3 +49,51 @@ parcel-cache, node_modules, dist files are temporary files and can be re-generat
 
 To make it compatible for older versions we're using browserslist. To do so add requirement in package.json file
 
+Always put package and package-lock.json in git.If we have these two then we can recreate all the node modules even if it's deleted.
+
+.gitignore includes all the files which we don't want in github.
+
+Igniting our app using parcel
+
+#Parcel is a bundler, it creates a server.
+1. Build a dev build for our app. 
+2. Build a localhost for our app.
+3. Reloading/Refreshing the page in browser automatically - HMR(hot module replacement)
+4. Parcel uses File watching Algorithm which is written in C++.
+5. Parcel gives faster builds because of Caching in parcel-cache(Has binary files).
+6. Parcel does image optimization.
+7. During production build, it minifies our file.
+8. It bundles the code.
+9. It compresses the file.
+10.Consistent hashing - ?
+11. Code splitting 
+12. Differential bundling - When app is hoisted, it can be opened in several browsers and different and older browser.Parcel does this to support older browsers.When we use script type="module", parcel automatically generates a node module fallback for older browsers as well.
+13. Parcel gives you a beautiful error display. good error handling.
+14. Diagnostics
+15. Helps to host your app on https.
+16. Reliable Caching
+17. Tree shaking - remove unused code for you(Let's say there are 100's of functions and we are using only three or four function then parcel will tree shake our code and remove unused code).
+18. Transpilation
+19. Different build for dev and production - production build takes more time for build and optimization than dev(less optimization)
+
+
+***********Ways of bringing react into our app.************
+1. CDN - not a preferred way because it's a costlier operation and no need of another network to call react.
+2. Using NPM (npm install react and npm install react-dom).npm i is short form of npm install.
+ 
+
+"Error: Browser scripts cannot have imports or exports." - If type="module" is not included then browser will treat html as normsl script file but a module.
+
+"app.js:38 Warning: You are importing createRoot from "react-dom" which is not supported. You should instead import it from "react-dom/client"." - import from react-dom/client.
+
+****Create a prod build****
+npx parcel build index.html throws error, then remove app.js from package.json's main.
+When production build is done this will go to "dist" folder.
+
+parcel-cache and dist can be re-generated.
+
+copy of node modules in local and copy of node_modules in server  are different.
+
+Browser list - which all browsers our app supports by configuring it inside package.json 
+
+Dev dependency and normal dependency difference- ?

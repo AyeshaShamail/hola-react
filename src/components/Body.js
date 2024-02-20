@@ -1,41 +1,99 @@
 import RestaurantCard from "./RestaurantCard";
-import resList from "../utils/mockData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
-  //Super-powerful variable
+  //Super-powerful variable or state variable which are called hooks
   // setListOfRestaurants is used to update the list and is the second parameter of the array.
-  const [ListOfRestaurants, setListOfRestaurants] = useState(resList);
+  // Local State Variable - Super powerful variable
+  const [listOfRestaurants, setListOfRestraunt] = useState([]);
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
-  // Above is same as Array destructuring which is done below //
+  const [searchText, setSearchText] = useState("");
 
-  // const arr = useState(resList);
-  // const [ListOfRestaurants, setListOfRestaurants] = arr; 
+  // Whenever state variables update, react triggers a reconciliation cycle(re-renders the component)
 
-  // or same as //
-  
-  // const ListOfRestaurants = arr[0];
-  // const setListOfRestaurants = arr[1];
-   
+  useEffect(() => {
+    fetchData();
+  }, []);
+  TCPL68082;
 
-  return (
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    // Optional Chaining
+    setListOfRestraunt(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilteredRestaurant(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  };
+
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false)
+    return (
+      <p>
+        <i>Looks like you are offline, please check your internet connection</i>
+      </p>
+    );
+
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
+        <div className="search-bar m-2 p-2">
+          <input
+            type="text"
+            className="border border-solid border-black mr-2"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <button
+            className="px-4 bg-green-100 mx-4"
+            onClick={() => {
+              // Filter the restraunt cards and update the UI
+              // searchText
+              console.log(searchText);
+
+              const filteredRestaurant = listOfRestaurants.filter((res) =>
+                res.data.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+
+              setFilteredRestaurant(filteredRestaurant);
+            }}
+          >
+            Search
+          </button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
-            const filteredList = ListOfRestaurants.filter(
+            const filteredList = listOfRestaurants.filter(
               (res) => res.data.avgRating > 4
             );
-            setListOfRestaurants(filteredList);
+            setListOfRestraunt(filteredList);
           }}
         >
-          Top-Rated Restaurant
+          Top Rated Restaurants
         </button>
       </div>
       <div className="restaurant-container">
-        {ListOfRestaurants.map((restaurant, index) => (
-          <RestaurantCard key={restaurant.data.id} resData={restaurant} />
+        {filteredRestaurant.map((restaurant) => (
+          <Link
+            key={restaurant.info.id}
+            to={"/restraunts/" + restaurant.info.id}
+          >
+            <RestaurantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>
