@@ -18,7 +18,6 @@ const Body = () => {
   useEffect(() => {
     fetchData();
   }, []);
-  TCPL68082;
 
   const fetchData = async () => {
     const data = await fetch(
@@ -47,8 +46,8 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search-bar m-2 p-2">
+      <div className="filter flex">
+        <div className="search-bar m-3 p-2">
           <input
             type="text"
             className="border border-solid border-black mr-2"
@@ -58,7 +57,7 @@ const Body = () => {
             }}
           />
           <button
-            className="px-4 bg-green-100 mx-4"
+            className="px-4 py-1 bg-orange-300 mx-4 rounded-lg"
             onClick={() => {
               // Filter the restraunt cards and update the UI
               // searchText
@@ -74,19 +73,21 @@ const Body = () => {
             Search
           </button>
         </div>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            const filteredList = listOfRestaurants.filter(
-              (res) => res.data.avgRating > 4
-            );
-            setListOfRestraunt(filteredList);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+        <div className="search-bar m-2 p-1 flex items-center">
+          <button
+            className="px-4 py-1 rounded-lg bg-orange-300"
+            onClick={() => {
+              const filteredList = listOfRestaurants.filter(
+                (res) => res?.data?.avgRating > 4
+              );
+              setListOfRestraunt(filteredList);
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
       </div>
-      <div className="restaurant-container">
+      <div className="flex flex-wrap">
         {filteredRestaurant.map((restaurant) => (
           <Link
             key={restaurant.info.id}
