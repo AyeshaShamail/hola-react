@@ -6,11 +6,21 @@ import UserClass from "./UserClass";
 class About extends Component {
   constructor(props) {
     super(props);
+    this.intervalId = null;
     // console.log("Parent Constructor");
   }
   componentDidMount() {
+    this.intervalId = setInterval(() => {
     // console.log("Parent Component Did Mount");
+        console.log('Interval running...');
+    }, 1000);
   }
+
+  componentWillUnmount() {
+      clearInterval(this.intervalId);
+      console.log('Interval cleared.');
+  }
+  
   render() {
     // console.log("Parent render");
     return (
