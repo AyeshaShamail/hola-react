@@ -12,7 +12,7 @@ const Header = () => {
   }, [buttonNameReact]);
 
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between bg-orange-200 sm:bg-orange-300 lg:bg-orange-400">
       <div className="logo-container">
         <img className="w-24" src={LOGO_URL} />
       </div>
