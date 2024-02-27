@@ -1,6 +1,7 @@
 import { Component } from "react";
 import User from "./User";
 import UserClass from "./UserClass";
+import UserContext from "../utils/UserContext";
 
 // when parent is CB
 class About extends Component {
@@ -9,23 +10,31 @@ class About extends Component {
     this.intervalId = null;
     // console.log("Parent Constructor");
   }
-  componentDidMount() {
-    this.intervalId = setInterval(() => {
-    // console.log("Parent Component Did Mount");
-        console.log('Interval running...');
-    }, 1000);
-  }
+  // componentDidMount() {
+  //   this.intervalId = setInterval(() => {
+  //     // console.log("Parent Component Did Mount");
+  //     console.log("Interval running...");
+  //   }, 1000);
+  // }
 
-  componentWillUnmount() {
-      clearInterval(this.intervalId);
-      console.log('Interval cleared.');
-  }
-  
+  // componentWillUnmount() {
+  //   clearInterval(this.intervalId);
+  //   console.log("Interval cleared.");
+  // }
+
   render() {
     // console.log("Parent render");
     return (
-      <div>
+      <div className="p-4 m-4 bg-orange-300 text-center">
         <h1>About Us using Class based Component</h1>
+        <div>
+          Logged in User
+          <UserContext.Consumer>
+            {({ loggedInUser }) => (
+              <h1 className="text-xl font-bold">{loggedInUser}</h1>
+            )}
+          </UserContext.Consumer>
+        </div>
         <h2>This is my food app website</h2>
         <UserClass name={"First"} location={"Pavagada"} />
       </div>

@@ -1,0 +1,43 @@
+HOC - Higher order components --> A function that takes a component inside and returns a new component.
+So HOC basically takes the component as an input and enhances it, adds some extra features to it and returns it. Acts like as an enhancer.
+
+HOC are pure functions - Not change any of it's behaviour/features.To enhance or modify the UI or pass some other props etc
+
+All the react app has two layers:
+1. UI layer which is powered by data layer(Code written inside the JSX)
+2. Data layer(State,props,local vars,JS code in JSX inside the curly braces)
+
+------------Data layer---------------
+
+Controlled components - Parent component is controlling the child component
+Uncontrolled component - When child has its own state and is not controlled by the props.
+
+RestaurantCategory is a controlled component because the parent RestaurantMenu component is controlling the RestaurantCategory.When it has it's own state, it was in uncontrolled state.
+If the RestaurantCategory was controlling itself the showItems, then it would have been a uncontrolled component, if we remove setShowItems(!showItems), then it's an uncontrolled component since it is relying upon it's parent to tell it what to do and hence now it's an controlled component.
+Now RestaurantCategory is a controlled component since we can control it via props, it doesn't have its own state even if it's there that's not the main state.
+
+Is it possible to modify the state variable of my parent through the children?
+No, we can't modify directly but indirectly we can modify.
+Pass setShowIndex to the children by passing a function and it will called with index. Now we can pass this feature of setting the showIndex to the children by passing a props
+
+Lifting state up -- Sometimes we have to lift the state up if we have to control the children
+
+Prop drilling - Drilling the props to children from parent
+
+
+
+React context is used to avoid props drilling
+-- context is like a global place where the data is kept where anybody can access
+
+In class based component we don't have to use hooks, then we have to use useContext like below where we are using it as a component which has a call back function that gets data inside it with the help of React.
+<div>
+          Logged in User
+          <UserContext.Consumer>
+            {({loggedInUser}) => <h1>{loggedInUser}</h1>>}
+          </UserContext.Consumer>
+        </div>
+
+
+ContextProvider is used to provide a new value(over riding the default value) to whole app and wrap whole app inside it or specific portion of the app.
+Nested context provider - 
+React context

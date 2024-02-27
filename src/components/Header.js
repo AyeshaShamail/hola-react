@@ -1,15 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [buttonNameReact, setButtonNameReact] = useState("Login");
   const onlineStatus = useOnlineStatus();
 
-  useEffect(() => {
-    console.log("UseEffect called");
-  }, [buttonNameReact]);
+  const { loggedInUser } = useContext(UserContext);
+  console.log(loggedInUser);
 
   return (
     <div className="flex justify-between bg-orange-400 sm:bg-orange-400 lg:bg-orange-300">
@@ -33,7 +33,7 @@ const Header = () => {
           <li className="px-4">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li className="px-4">Sign Up/Sign In</li>
+          {/* <li className="px-4">Sign Up/Sign In</li> */}
           <li className="px-4">Cart</li>
           <button
             className="px-4"
@@ -45,6 +45,7 @@ const Header = () => {
           >
             {buttonNameReact}
           </button>
+          <li className="px-4 text-white">{loggedInUser}</li>
         </ul>
       </div>
     </div>
