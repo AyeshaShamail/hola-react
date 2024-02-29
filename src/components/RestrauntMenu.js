@@ -17,15 +17,16 @@ const RestrauntMenu = () => {
 
   //destructing it
   const { name, cuisines, costForTwoMessage, avgRatingString } =
-    resInfo?.cards[2]?.card?.card?.info;
+    resInfo?.cards[0]?.card?.card?.info;
 
   const { itemCards } =
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card?.card;
+    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card
+      ?.card;
 
   // console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
 
   const categories =
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
         c.card?.["card"]?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
@@ -36,10 +37,10 @@ const RestrauntMenu = () => {
     <div className="text-center">
       <h1 className="font-bold my-6 text-2xl">{name}</h1>
       <p className="font-bold text-lg">
-        {cuisines.join(",")} - {costForTwoMessage} - {avgRatingString} ratings
+        {cuisines?.join(",")} - {costForTwoMessage} - {avgRatingString} ratings
       </p>
       {/** Categories accordions*/}
-      {categories.map((category, index) => (
+      {categories?.map((category, index) => (
         // controlled component
         <RestaurantCategory
           key={category?.card?.card?.title}

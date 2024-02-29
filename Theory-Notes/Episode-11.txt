@@ -41,3 +41,8 @@ In class based component we don't have to use hooks, then we have to use useCont
 ContextProvider is used to provide a new value(over riding the default value) to whole app and wrap whole app inside it or specific portion of the app.
 Nested context provider - 
 React context
+
+By giving value={{loggedInUser: userName, setUserName}} in UserContext we're overriding the default value
+We're binding the UserContext with our state variable, every time state variable changes our UserContext changes, the global variable changes and everywhere data in our app will be changed
+
+Data Management Library/State management library - Redux

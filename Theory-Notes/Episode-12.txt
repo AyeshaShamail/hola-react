@@ -1,0 +1,23 @@
+ -----------REDUX-------------
+ Data Management Library/State management library - Redux
+
+ Redux or Redux toolkit - to do the same thing as useContext
+
+ Redux also creates a store, a central store - from where we can access all of it.
+
+ Context vs Redux store
+
+ small/medium - useContext
+ large - Redux(can use useContext but redux gives scalability)
+
+ React and Redux are different libraries. Redux is not mandatory but can be used when required.
+
+ Redux alternative - Zustand(checkout)
+
+Redux is used to manage the state of our application.Application becomes easier to debug.
+
+Chrome extension to debug - Redux dev tools
+
+Redux is a predictable state container for JS Apps
+
+Will use React-Redux(bindings for React) and Redux Toolkit libraries(opinionated, batteries-included toolset for efficient Redux development)
