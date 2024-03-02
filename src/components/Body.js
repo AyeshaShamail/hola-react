@@ -23,6 +23,9 @@ const Body = () => {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
+    // const data = await fetch(
+    //   "https://corsproxy.org/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    // );
     const json = await data.json();
     // Optional Chaining
     setListOfRestraunt(
@@ -79,7 +82,7 @@ const Body = () => {
           <button
             className="px-4 py-1 rounded-lg bg-orange-300"
             onClick={() => {
-              const filteredList = listOfRestaurants.filter(
+              const filteredList = listOfRestaurants?.filter(
                 (res) => res?.data?.avgRating > 4
               );
               setListOfRestraunt(filteredList);

@@ -21,3 +21,23 @@ Chrome extension to debug - Redux dev tools
 Redux is a predictable state container for JS Apps
 
 Will use React-Redux(bindings for React) and Redux Toolkit libraries(opinionated, batteries-included toolset for efficient Redux development)
+
+Redux store is like a big JS object which is kept in a global central place.
+
+Slices - small portion of our redux store, which is needed to keep data seperate we do partitional logically. There can be theme slice, user slice, cart slice or whatever slice which we want.
+We can't directly modify the slice, if we need to do/ write the data i.e when u click on an add button --> it dispatches an action --> it calls a Reducer function() --> this function internally modifies the cart(which updates the slice of our Redux store). The function is known as a "Reducer"
+
+Refer the diagram - <img src="./Redux-toolkit.png" />
+
+If we want read the data from cart slice and see it in UI-- we use something known as a selector to read the data from our store which will modify our react component(header). This phenomenon is known as subscribing to the store, we can say that our header component is subscribed to our store i.e sync with the store.
+
+Redux Toolkit
+- Install @reduxjs/toolkit and react-redux
+- Build our store
+- Connect store to our application
+- Create a  cartSlice
+- dispatch action
+- Read the data using selector
+
+configureStore - configuring the store is Redux job
+provider - providing it to a react app is react-redux job
