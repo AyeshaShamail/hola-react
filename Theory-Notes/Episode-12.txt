@@ -74,3 +74,9 @@ newState.items.push(action, payload);
 return newState;
 
 Redux uses something called Immer.js library(tiny package that allows you to work with immutable state) - basically this finds difference btw original state(mutated state) and gives back the new copy of the state(immutable state)
+
+consle.log doesn't work inside Redux so instead of console.log(state) use console.log(current(state))--[creates proxyObject BTS] and current will be imported from Redux toolkit
+
+RTK says either mutate the existing state or return a new state
+
+`Homework` - Read about RTK query in redux toolkit doc page - Middleware, thunk for asynchronous operations
