@@ -10,6 +10,8 @@ const RestrauntMenu = () => {
 
   const resInfo = useRestrauntMenu(resId);
 
+  console.log(resInfo);
+
   const [showIndex, setShowIndex] = useState(null);
 
   if (resInfo === null) return;
@@ -20,10 +22,9 @@ const RestrauntMenu = () => {
     resInfo?.cards[0]?.card?.card?.info;
 
   const { itemCards } =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card
-      ?.card;
+    resInfo?.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards[1].card?.card;
 
-  // console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+  console.log(itemCards);
 
   const categories =
     resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(

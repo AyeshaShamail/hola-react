@@ -10,6 +10,7 @@ import RestrauntMenu from "./components/RestrauntMenu";
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
@@ -63,6 +64,7 @@ const appRouter = createBrowserRouter([
         ),
       },
       { path: "/restraunts/:resId", element: <RestrauntMenu /> },
+      { path: "/cart", element: <Cart /> },
     ],
     errorElement: <Error />,
   },

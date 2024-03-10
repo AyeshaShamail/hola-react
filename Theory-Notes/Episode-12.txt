@@ -41,3 +41,36 @@ Redux Toolkit
 
 configureStore - configuring the store is Redux job
 provider - providing it to a react app is react-redux job
+
+Interview Qsn-
+
+ ==> While doing selector, make sure you're subscribing to right portion of the store. Here we can optimise the performance, else it will be a huge performance loss .
+Let's say for line 7 in Cart.js we'll write 
+`const store = useSelector((store) => store);
+
+const cartItems = store.cart.items;` -- subscribing to the whole store -- which is less efficient
+
+which is same as `const cartItems = useSelector((store) => store.cart.items)` --> subscribing small portion of the store -- doesn't get affect by whatever happening outside of this.
+
+Both will work fine but the first one is less efficient
+
+Because when our application grows big,store grows big - we don't want our componnet to be affected
+
+The name is selector because we're selecting a portion of the store
+
+==> reducer and reducers are different
+
+Reducer is a combination of different small reducers
+
+While creating a appStore, it's Reducer i.e., one big reducer and it can have multiple reducers
+While creating slice, we have Reducers, we have multiple small reducer functions, while exporting we export only one reducer function(which is combination of multiple small reducers).
+
+-- Vanilla or older redux used to give error - Don't mutate the state while doing state.items.push(action,payload)
+
+earlier ppl used to create a copy of a variable or a new state as shown below-
+
+const newState = [...state];
+newState.items.push(action, payload);
+return newState;
+
+Redux uses something called Immer.js library(tiny package that allows you to work with immutable state) - basically this finds difference btw original state(mutated state) and gives back the new copy of the state(immutable state)

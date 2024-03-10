@@ -1,6 +1,14 @@
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 import { CDN_URL } from "../utils/constants";
 
 const ItemList = ({ items }) => {
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item) => {
+    //dispatch an action
+    dispatch(addItem(item));
+  };
   return (
     <div>
       <div>
@@ -24,7 +32,11 @@ const ItemList = ({ items }) => {
               </p>
             </div>
             <div className="relative p-4 w-3/12">
-              <button className="bg-slate-100 px-4 text-orange-400 border border-orange-200 rounded-lg absolute top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-3/4">
+              <button
+                className="bg-slate-100 px-4 text-orange-400 border border-orange-200 rounded-lg absolute top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-3/4"
+                onClick={() => handleAddItem(item)} // callback function
+                // onClick = {handleAddItem} - call function right away
+              >
                 + Add
               </button>
               {item?.card?.info?.imageId && (

@@ -1,4 +1,5 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
+import { useSelector } from "react-redux";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -9,7 +10,10 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   const { loggedInUser } = useContext(UserContext);
-  console.log(loggedInUser);
+  // Selector is nothing but a hook in our react
+  // Subscribing to our store using a selector
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
 
   return (
     <div className="flex justify-between bg-orange-400 sm:bg-orange-400 lg:bg-orange-300">
@@ -34,7 +38,9 @@ const Header = () => {
             <Link to="/grocery">Grocery</Link>
           </li>
           {/* <li className="px-4">Sign Up/Sign In</li> */}
-          <li className="px-4">Cart</li>
+          <li className="px-4 fot-bold">
+            <Link to="/cart">🛒 ({cartItems.length} items)</Link>
+          </li>
           <button
             className="px-4"
             onClick={() => {
