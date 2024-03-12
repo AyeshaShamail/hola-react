@@ -1,0 +1,74 @@
+----- Types of testing done by developers-------
+1. Unit testing -- Testing react components in isolation - only one specific component is being tested and not the whole react application
+2. Integration testing -- Integration of many components which are talking to each other where we develop the flow of action
+3. End-end testing (e2e testing) - Testing the entire application flows from user landing on the page to leaving the app - simulating how user will flow across the app - requires different types of tools like Selenium,Cypress, Puppeteer
+
+npm create-react-app installation already have react-testing library,bundlers,state managemnet and routing integrated in it
+Since we're building from scratch we're installing
+
+React testing library uses JEST BTS
+
+React testing library takes something known as JEST(delightful JS testing framework with a focus on simplicity)
+
+------------- How to set up react app to write the test cases -------------
+
+Libraries - React testing library - npm install --save-dev @testing-library/react or npm i -D @testing-library/react (saving as dev dependency) 
+
+Installing JEST into our application - npm install -D Jest
+
+Since we're using along with Babel(Transpiler), let's intsall - npm install --save-dev babel-jest @babel/core @babel/preset-env - parcel already uses babel and it has its own babel configuration - now when we write our own babel configuration, it kinda over rides the parcel configuration for babel and keep this
+
+Once all are installed now configure babel in babel.config.js - create babel.config.js file in the root and write the code present in backticks
+
+`module.exports = {
+  presets: [["@babel/preset-env", { targets: { node: "current" } }]],
+};`
+
+To make our own configuration to use babel config and not parcel babel config, do changes in RC file of parcel - create rc file in root called .parcelrc and paste the code embedded with backticks
+`{
+  "extends": "@parcel/config-default",
+  "transformers": {
+    "*.{js,mjs,jsx,cjs,ts,tsx}": [
+      "@parcel/transformer-js",
+      "@parcel/transformer-react-refresh-wrap"
+    ]
+  }
+}`
+--------------------------------------------------------------------
+
+To run test cases - npm run test
+
+-------------------- JEST Configuration---------------------------------------
+
+-- npx jest --init
+Answer below qsn 
+1. No because we're not using Typescript
+2. jsdom(browser-like)
+3. yes
+4. babel
+5. yes
+
+The following questions will help Jest to create a suitable configuration for your project
+
+✔ Would you like to use Typescript for the configuration file? … no
+✔ Choose the test environment that will be used for testing › jsdom (browser-like)
+✔ Do you want Jest to add coverage reports? … yes
+✔ Which provider should be used to instrument code for coverage? › babel
+✔ Automatically clear mock calls, instances, contexts and results before every test? … yes
+
+📝  Configuration file created at /home/ayesha/Desktop/hola-react/jest.config.js
+
+-------------------- Install jsdom library---------------------------------------
+Go to react testing library>React Testing Library > Setup >Jest 28 section(depend on version u have installed)> npm install --save-dev jest-environment-jsdom
+ 
+-D === --save-dev
+
+-------------------------------Writing Test Cases------------------------------------------------------
+
+
+
+
+
+For more info or Home work- go to parcel docs>JS>Babel and read
+-- jsdom(browser-like) - when we write test cases, they don't have server means they don't run on google chrome. So to run we need a server or run-time where test cases can be executed - jsdom is like a browser
+Home work - go through jsdom docs
