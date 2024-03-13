@@ -65,10 +65,22 @@ Go to react testing library>React Testing Library > Setup >Jest 28 section(depen
 
 -------------------------------Writing Test Cases------------------------------------------------------
 
-
-
+1. create a folder __tests__ anywhere in the folder structure, the files with extension js or ts will be considered as our test files. Otherwise we can create any file with fileName.test.js or fileName.test.ts or fileName.spec.js or fileName.test.ts as mentioned in regex
+2. Create a file sum.test.js and we write it as below-
+Sum function takes 2 args one is string and other is callback func()
+`test("Description of the test", () => {implementation of the function})`
 
 
 For more info or Home work- go to parcel docs>JS>Babel and read
 -- jsdom(browser-like) - when we write test cases, they don't have server means they don't run on google chrome. So to run we need a server or run-time where test cases can be executed - jsdom is like a browser
 Home work - go through jsdom docs
+
+__ before and after tests is known as dunder, which is a reserved keyword.
+
+First error occurs after writing Contact.test.js then install @babel/preset-react - to make JSX work in test cases
+and include @babel/preset-react inside my babel config -- ["@babel/preset-react", { runtime: "automatic" }]
+
+The second error occurs  - "TypeError: expect(...).toBeInTheDocumnet is not a function"
+
+It occurs because - we're trying to render our componnet to JSDOM and we're trying to find our heading in the rendered screen.Now we're seraching our heading is inside the document or not and it says this function doesn't exist because we have not installed a library - npm i -D @testing-library/jest-dom .
+Once intsalled we can find toBeInTheDocumnet() and import "@testing-library/jest-dom" in Contact.test.js file
