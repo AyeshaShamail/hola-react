@@ -13,7 +13,6 @@ const Header = () => {
   // Selector is nothing but a hook in our react
   // Subscribing to our store using a selector
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
 
   return (
     <div className="flex justify-between bg-orange-400 sm:bg-orange-400 lg:bg-orange-300">

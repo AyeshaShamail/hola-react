@@ -1,0 +1,86 @@
+{
+  "info": {
+    "id": "426776",
+    "name": "Theobroma",
+    "cloudinaryImageId": "63dd75492c47fcec191132b8eb299ea5",
+    "locality": "7th Block",
+    "areaName": "Koramangala",
+    "costForTwo": "₹400 for two",
+    "cuisines": ["Desserts", "Bakery", "Beverages"],
+    "avgRating": 4.7,
+    "parentId": "1040",
+    "avgRatingString": "4.7",
+    "totalRatingsString": "1K+",
+    "sla": {
+      "deliveryTime": 22,
+      "lastMileTravel": 1.4,
+      "serviceability": "SERVICEABLE",
+      "slaString": "20-25 mins",
+      "lastMileTravelString": "1.4 km",
+      "iconType": "ICON_TYPE_EMPTY"
+    },
+    "availability": {
+      "nextCloseTime": "2024-03-15 23:00:00",
+      "opened": true
+    },
+    "badges": {
+      "textExtendedBadges": [
+        {
+          "iconId": "v1705582451/Ratnesh_Badges/Listing_HR.png",
+          "shortDescription": "Perfect Cake Delivery",
+          "fontColor": "#7E808C"
+        }
+      ]
+    },
+    "isOpen": true,
+    "type": "F",
+    "badgesV2": {
+      "entityBadges": {
+        "imageBased": {},
+        "textBased": {},
+        "textExtendedBadges": {
+          "badgeObject": [
+            {
+              "attributes": {
+                "description": "",
+                "fontColor": "#7E808C",
+                "iconId": "v1705582451/Ratnesh_Badges/Listing_HR.png",
+                "shortDescription": "Perfect Cake Delivery"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "aggregatedDiscountInfoV3": {
+      "header": "15% OFF",
+      "discountTag": "FLAT DEAL"
+    },
+    "orderabilityCommunication": {
+      "title": {},
+      "subTitle": {},
+      "message": {},
+      "customIcon": {}
+    },
+    "differentiatedUi": {
+      "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+      "differentiatedUiMediaDetails": {
+        "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+        "lottie": {},
+        "video": {}
+      }
+    },
+    "reviewsSummary": {},
+    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+    "restaurantOfferPresentationInfo": {}
+  },
+  "analytics": {
+    "context": "seo-data-c9be67c0-eb02-4c96-94fe-0a87ee93c0ea"
+  },
+  "cta": {
+    "link": "https://www.swiggy.com/restaurants/theobroma-7th-block-koramangala-bangalore-426776",
+    "text": "RESTAURANT_MENU",
+    "type": "WEBLINK"
+  },
+  "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+}

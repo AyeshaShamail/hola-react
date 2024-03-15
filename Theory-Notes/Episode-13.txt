@@ -84,3 +84,12 @@ The second error occurs  - "TypeError: expect(...).toBeInTheDocumnet is not a fu
 
 It occurs because - we're trying to render our componnet to JSDOM and we're trying to find our heading in the rendered screen.Now we're seraching our heading is inside the document or not and it says this function doesn't exist because we have not installed a library - npm i -D @testing-library/jest-dom .
 Once intsalled we can find toBeInTheDocumnet() and import "@testing-library/jest-dom" in Contact.test.js file
+
+
+-- Another error will come while loading header component -- "could not find react-redux context value; please ensure the component is wrapped in a <Provider>" -- failed at a point because of useSelector
+
+Since our app use redux , here we're rendering our header component in isolation(We're rendering in jsdom) - JSDOM understand JSX code but doesn't understand redux code, when it goes through header component, it understand everything but when we comes to useSelector it fails and hence we have to provide a redux store to the component.
+
+-- Another error - "TypeError: Cannot destructure property 'basename' of 'React__namespace.useContext(...)' as it is null." and 
+-- Another error - "The above error occurred in the <Link> component:" -- when we go through header component we go through Link which is coming from react-router-dom - we have to provide context of react router dom to our render/header/app
+
