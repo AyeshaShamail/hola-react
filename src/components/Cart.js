@@ -23,8 +23,12 @@ const Cart = () => {
       )}
       {cartItems.length === 0 && (
         <div>
-          <h1 className="font-bold text-2l m-2 p-2">Looks like, your cart is empty</h1>
-          <p className="pb-2">You can go to home page to view more restaurants</p>
+          <h1 className="font-bold text-2l m-2 p-2">
+            Looks like, your cart is empty
+          </h1>
+          <p className="pb-2">
+            You can go to home page to view more restaurants
+          </p>
         </div>
       )}
       <div className="w-6/12 m-auto border border-orange-300">

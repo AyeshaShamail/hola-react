@@ -38,6 +38,24 @@ test("Should load two input boxes in contact us component", () => {
 // If we have more than 20 Test cases - group multiple test cases into a single block called describe
 // We can have multiple describe blocks, nested describe box
 describe("Contact Us Page Test Cases", () => {
+  //jest gives an important function beforeAll to do something before all the test cases
+  // beforeAll(() => {
+  //   console.log("Before All");
+  // });
+
+  // //similarly we have After All and After each
+  // afterAll(() => {
+  //   console.log("After All");
+  // });
+
+  // afterEach(() => {
+  //   console.log("After All");
+  // });
+
+  // //before each test beforeEach will run - to do to do something before each the test cases - helpful to do some cleanup taska
+  // beforeEach(() => {
+  //   console.log("Before Each");
+  // });
   // jest says we can write the name of test function as "it" also as written below and there's no difference in it as it and test are alias
   // Writing here it for my knowledge, it means I can write either "it" or "test"
   it("Should load contact us component", () => {

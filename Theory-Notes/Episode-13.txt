@@ -104,10 +104,12 @@ Act returns a promise so we have to await for act, We have to write await before
 
 i.e., act returns a promise so we have to await for the act and act is a function which takes a callback function which is again a async function and this async func returns your render and render will basically return our body component.
 
-Refer teh below example -
+Refer the below example -
 it("Should render the Body component with search button", async () => {
   //Whenever we are using state updates, wrap render method in act function to avoid error while running test cases.
   await act(async () => {
     render(<Body />);
   });
 });
+
+we will get some redux error in cart.js then please enclose your component inside the provider from react-redux and pass store inside it
