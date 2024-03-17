@@ -93,3 +93,21 @@ Since our app use redux , here we're rendering our header component in isolation
 -- Another error - "TypeError: Cannot destructure property 'basename' of 'React__namespace.useContext(...)' as it is null." and 
 -- Another error - "The above error occurred in the <Link> component:" -- when we go through header component we go through Link which is coming from react-router-dom - we have to provide context of react router dom to our render/header/app
 
+--------------------------------------Advanced test cases using integration Testing---------------------------------------
+
+We're going to test the flow/feature
+
+to run test cases automatically, go to package.json file, and write "watch-test": "jest --watch" in scripts and then write command npm run watch-test to run test cases automatically on saving 
+
+To avoid error - regarding act, we have to render our component inside the act function which comes from react-dom/test-utils library
+Act returns a promise so we have to await for act, We have to write await before act function and then pass async to the callback function and inside the function of act it takes one more async callback function
+
+i.e., act returns a promise so we have to await for the act and act is a function which takes a callback function which is again a async function and this async func returns your render and render will basically return our body component.
+
+Refer teh below example -
+it("Should render the Body component with search button", async () => {
+  //Whenever we are using state updates, wrap render method in act function to avoid error while running test cases.
+  await act(async () => {
+    render(<Body />);
+  });
+});

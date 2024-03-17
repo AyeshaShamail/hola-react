@@ -1,19 +1,22 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromtedLabel } from "./RestaurantCard";
 import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
-// import UserContext from "../utils/UserContext";
 
 const Body = () => {
   //Super-powerful variable or state variable which are called hooks
   // setListOfRestaurants is used to update the list and is the second parameter of the array.
   // Local State Variable - Super powerful variable
-  const [listOfRestaurants, setListOfRestraunt] = useState([]);
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
   const [searchText, setSearchText] = useState("");
+
+  const RestaurantCardPromoted = withPromtedLabel(RestaurantCard);
+
+  // Whenever state variables update, react triggers a reconciliation cycle(re-renders the component)
 
   useEffect(() => {
     fetchData();
@@ -28,7 +31,7 @@ const Body = () => {
     // );
     const json = await data.json();
     // Optional Chaining
-    setListOfRestraunt(
+    setListOfRestaurants(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestaurant(
@@ -52,7 +55,7 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="filter flex">
-        <div className="search-bar m-3 p-2">
+        <div className="search m-3 p-2">
           <input
             type="text"
             className="border border-solid border-black mr-2"
@@ -69,7 +72,7 @@ const Body = () => {
               // console.log(searchText);
 
               const filteredRestaurant = listOfRestaurants.filter((res) =>
-                res?.data?.name.toLowerCase().includes(searchText.toLowerCase())
+                res?.info?.name.toLowerCase().includes(searchText.toLowerCase())
               );
 
               setFilteredRestaurant(filteredRestaurant);
@@ -78,14 +81,14 @@ const Body = () => {
             Search
           </button>
         </div>
-        <div className="search-bar m-2 p-1 flex items-center">
+        <div className="search m-2 p-1 flex items-center">
           <button
             className="px-4 py-1 rounded-lg bg-orange-300"
             onClick={() => {
               const filteredList = listOfRestaurants?.filter(
-                (res) => res?.data?.avgRating > 4
+                (res) => res?.info?.avgRating > 4
               );
-              setListOfRestraunt(filteredList);
+              setFilteredRestaurant(filteredList);
             }}
           >
             Top Rated Restaurants
@@ -106,7 +109,11 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restraunts/" + restaurant.info.id}
           >
-            <RestaurantCard resData={restaurant} />
+            {restaurant?.info?.avgRating > 4.2 ? (
+              <RestaurantCardPromoted resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>
